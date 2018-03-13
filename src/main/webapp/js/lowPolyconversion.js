@@ -17,14 +17,14 @@
 	// (int) Allowable number of pixels, resize when images exceeding this number of pixels are specified
     var PIXEL_LIMIT = 2100000;// set to 1080p resolution
     
-    var GENERAL_MESSAGE = 'Drop image to change source.'; // Normal display message
-    var GENERATIONG_MESSAGE = 'Generating...'; // Display message being generated
+    //var GENERAL_MESSAGE = 'Drop image to change source.'; // Normal display message
+    //var GENERATIONG_MESSAGE = 'Generating...'; // Display message being generated
     var IMG_PRESETS = [ // Preset image(s)
-    		mainImage
+    		mainImage // pass js var in from view
     ];
     
     
-    IMG_PRESETS.crossOrigin = 'Anonymous'; 
+   
     // Vars
 
     var image, source;
@@ -80,8 +80,9 @@
         image = document.getElementById('output');
         image.addEventListener('load', adjustImage, false);
         
-        message = document.getElementById('message');
-        message.innerHTML = GENERATIONG_MESSAGE;
+        //message = document.getElementById('message');
+        document.getElementById('spinner').style.display = 'block'; // add loading animation
+        //message.innerHTML = GENERATIONG_MESSAGE;
     
         /*document.addEventListener('click', documentClick, false);
          * 
@@ -190,7 +191,9 @@
     function setSource(src) {
 		// Indicates that it is being generated
         generating = true;
-        message.innerHTML = GENERATIONG_MESSAGE;
+        //message.innerHTML = GENERATIONG_MESSAGE;
+        document.getElementById('spinner').style.display = 'block'; // add loading animation
+
         
         if (source.src !== src) {
 			// Initialize size
@@ -205,16 +208,6 @@
 
 
     
-    
-    
-    
-    
-    
-    
-   
-
-
-
 
     /**
 	 * Generate an image
@@ -284,8 +277,10 @@
             context.fill();
         }
         
-        image.src = canvas.toDataURL('image/png');
-    
+        image.src = canvas.toDataURL('image/png').replace("image/png", "image/octet-stream");// replace dat
+        //var url = img.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream'); // create html friendly url to download
+        
+        
 		// View log
         generateTime = new Date().getTime() - generateTime;
         console.log(
@@ -296,7 +291,8 @@
         
 		// Completion of generation
         generating = false;
-        message.innerHTML = GENERAL_MESSAGE;
+        //message.innerHTML = GENERAL_MESSAGE;
+        document.getElementById('spinner').style.display = 'none'; // add loading animation
     }
 
     /**

@@ -1,12 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="InstaLowPoly"/>
-<%@include file="includes/header.jspf"%>
+<%@include file="includes/headerIndex.jspf"%>
 
 
-		<h1>Hello!</h1>
+
+		
+		<c:url var="instagramLogo" value="img/insta-logo-01.png" />
+		<img src="${instagramLogo }" class="instagram__logo">
+		<h1>InstaLowPoly</h1>
+		<h3>The lowpoly Instagram Image Converter</h3>
 		
 		
-		<c:url var="addUrl" value="/" />
+		
 		<form action="${addUrl }" method="POST">
 		<div class="form-field">
 		<label for="instagramAccount">Enter your instagram username</label> 
@@ -19,4 +24,4 @@
 		</div>
 		</form>
 
-<%@include file="includes/footer.jspf"%>
+<%@include file="includes/footerIndex.jspf"%>
