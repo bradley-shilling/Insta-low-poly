@@ -1,7 +1,24 @@
+<%@ page import="org.jinstagram.auth.oauth.InstagramService" %>
+<%@ page import="com.tecelevator.instagram.Constants" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="InstaLowPoly"/>
 <%@include file="includes/headerIndex.jspf"%>
 
+<%
+    // If an instagram object exists, then set url to first view
+    Object objInstagram = session.getAttribute(Constants.INSTAGRAM_OBJECT);
+	String authorizationUrl;
+	String authorizationMessage;
+    if (objInstagram != null) {
+    		authorizationUrl = request.getContextPath() + "/displayLowPoly";
+    		authorizationMessage = "Get Started!";
+        
+    } else { // if not set url to instagram api token
+    InstagramService service = (InstagramService) session.getServletContext().getAttribute(Constants.INSTAGRAM_SERVICE);
+	authorizationUrl = service.getAuthorizationUrl(); 
+	authorizationMessage = "Connect to Instagram!";
+    }
+%>
 
 
 		
@@ -12,16 +29,6 @@
 		
 		
 		
-		<form action="${addUrl }" method="POST">
-		<div class="form-field">
-		<label for="instagramAccount">Enter your instagram username</label> 
-		</div>
-		<div class="form-field">
-		<input type="text" name="instagramAccount" id="instagramAccount" placeholder="Enter your username on instagram">
-		</div>
-		<div class="form-field">
-		<input type="submit" value="Low Poly my Instgram">
-		</div>
-		</form>
+		<a href="<%= authorizationUrl %>"><button class="main-button"><%= authorizationMessage %></button></a>
 
 <%@include file="includes/footerIndex.jspf"%>
