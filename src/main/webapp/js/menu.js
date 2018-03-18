@@ -1,4 +1,4 @@
-$(document).ready(function() {
+(function(window, document) {
   var $svg = $(".sidebar"),
       $wrapper = $(".wrapper"),
       $path = $(".s-path"),
