@@ -17,7 +17,7 @@ button, input {
 
 body {
   background: #6D7ADA;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 
@@ -81,6 +81,9 @@ body {
   	-o-background-size: cover;
   	background-size: cover;
   	text-align:center;
+  	DISPLAY: FLEX;
+    justify-content: center;
+    align-items: center;
  }
  .index__wrapper p,
  .index__wrapper h1,
@@ -96,7 +99,7 @@ body {
  .index__wrapper h3 {
   font-size: 2.2rem;
   font-weight: 200;
-  padding: 0;
+  padding: 10px 0 0 0;
   margin: 0;
   font-style: italic;
  }
@@ -382,4 +385,70 @@ svg {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
   }
+}
+
+
+
+@media (max-width:767px) {
+	.hidden-small {
+		display:none !important;
+	}
+	.sidebar {
+ 		display:none !important;
+	}
+	.static:before, .static:after {
+		display:none !important;
+	}
+
+}
+
+@media (min-width:767px) {
+	.hidden-large {
+	display:none;
+	}
+}
+
+.button {
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #262db7;
+	color: #ffffff;
+	font-size: 2em;
+}
+.btn-show-mobile {
+	position: relative;
+    left: 50%;
+    margin-left: -25%;
+    top:15px;
+    font-size: 1em;
+}
+.main-button {
+	margin-top: 30px;
+}
+
+.starter-message {
+	position:realative;
+	top:50%;
+}
+
+/*	
+ * show all styles
+ */
+.show-all {
+	color: #ffffff;
+}
+.image__container {
+	padding:10px;
+}
+.show-all-image-wrapper {
+	display:flex; 
+	flex-wrap:wrap; 
+	justify-content:center;
+}
+.image__container:hover .image-info {
+	background-color: #E9EAF3;
+}
+.image-info {
+	background-color:#ffffff;
+	padding: 10px;
 }

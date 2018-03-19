@@ -31,7 +31,7 @@ public class InstagramTokenHandler extends HttpServlet {
         session.setAttribute(Constants.INSTAGRAM_OBJECT, instagram);
 
         System.out.println(request.getContextPath());
-        // Redirect to User Profile page.
+        // Redirect to User homepage.
         response.sendRedirect(request.getContextPath());
 
     }

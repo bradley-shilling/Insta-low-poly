@@ -24,9 +24,11 @@
 
 
 <div class="wrapper">
+<c:url var="showAll" value="/showAll"></c:url>
+
 	  
   <%-- set up svg element for menu --%>
-  <svg class="sidebar" viewBox="0 0 300 100%">
+  <svg class="sidebar hidden-small" viewBox="0 0 300 100%">
     <path class="s-path" fill="#fff" d="M0,0 50,0 a0,250 0 1,1 0,1000 L0,1000" />
   </svg>
   
@@ -47,6 +49,7 @@
 		<script type="text/javascript">
     			var mainImage = "${mainImageToProcess }";
 		</script>
+		<a href="${showAll }"><button class="button btn-show-mobile hidden-large">Select a Different Image</button></a>
   	<%-- loading spinner hidden by js when not needed --%>
     <div id="spinner">
 		<div class="bounce1"></div>
@@ -54,13 +57,13 @@
 		<div class="bounce3"></div>
 	</div>
 	<%-- prompt that appears along pull out menu --%>
-    <div class="menu__prompt">Select a different photo</div>
+    <div class="menu__prompt hidden-small">Select a different photo</div>
   </div>
   
   
   
   <%-- sidebar menu content --%>
-  <div class="sidebar-content">
+  <div class="sidebar-content hidden-small">
     <%-- loop through instagram photos and build menu --%>
     <c:forEach items="${images }" begin="1" end="8" var="image" >
 		<%-- <c:url var="menuLink" value="/${account.username }/${media.shortcode }" />--%>
@@ -80,7 +83,7 @@
     
     WORKING HERE --%>
     
-    
+    <%-- 
     		<form method="GET">
         		<input type="hidden" name="pagination" value="-">
         		<input type="submit" value="previous">
@@ -88,13 +91,15 @@
     		<form method="GET">
         		<input type="hidden" name="pagination" value="+">
         		<input type="submit" value="next">
-    		</form>	
+    		</form>	--%>
     		
     		
-    		<c:url var="showAll" value="/showAll"></c:url>
+    		<br />
+    		<br />
     		<a href="${showAll }"><button class="button">Show all images</button></a>
-    		
-    		<a href="#" id="downloader" onclick="#">Download!</a>
+    		<br />
+    		<%-- //TODO hook up download functionality JS --%>
+		<a href="#" id="downloader" onclick="#">Download!</a>
     		
         
         

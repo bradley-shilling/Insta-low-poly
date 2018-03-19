@@ -20,19 +20,19 @@
         return;
     }
 %>
-
+<div class="show-all">
 
 <h1><c:out value="${userName }" />'s Insagram Photos</h1>
 <h3>Showing all <c:out value="${images.size() }" />  Photos</h3>
 <h5>Select an image below to convert to low poly.</h5>
-<div class="" style="display:flex; flex-wrap:wrap; justify-content:center">
+<div class="show-all-image-wrapper">
   <c:forEach items="${images }" var="image" >
 		<c:url var="link" value="/displayLowPoly/${image.index }" />
 		<a href="${link }">
-			<div class="image__container" style="padding:10px;">
+			<div class="image__container">
 				<c:url var="thumb" value="${image.thumbnailURL }" />
       			<img src="${thumb }" alt="" class="thumb" style="width:100%" />
-				<div style="display:none;">
+				<div class="image-info hidden-small">
       				<span class="date"><c:out value="${image.createdDate }" /></span><br />
 	  				<span class="time"><c:out value="${image.createdTime }" /></span>
 				</div>
@@ -41,6 +41,6 @@
 	</c:forEach>
 </div>
 
-		
+</div>		
 
 <%@include file="includes/footer.jspf"%>

@@ -15,7 +15,7 @@ public class ContextListener implements ServletContextListener {
 
         String clientId = "27ce4c113f9b4d0296f1721999370707";
         String clientSecret = "fe3bd9c0510b4d4f8fb71f5467bd8b9a";
-        String callbackUrl = "https://safe-ridge-31475.herokuapp.com/handleInstagramToken";
+        String callbackUrl = "http://localhost:8080/InstaLowPoly/handleInstagramToken/";
 
 
 

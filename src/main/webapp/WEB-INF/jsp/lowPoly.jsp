@@ -21,14 +21,12 @@
 %>
 
 
-		
+		<div class="starter-message">
 		<c:url var="instagramLogo" value="img/insta-logo-01.png" />
 		<img src="${instagramLogo }" class="instagram__logo">
 		<h1>InstaLowPoly</h1>
 		<h3>The lowpoly Instagram Image Converter</h3>
+		<a href="<%= authorizationUrl %>"><button class="button main-button"><%= authorizationMessage %></button></a>
+		</div>
 		
-		
-		
-		<a href="<%= authorizationUrl %>"><button class="main-button"><%= authorizationMessage %></button></a>
-
 <%@include file="includes/footerIndex.jspf"%>

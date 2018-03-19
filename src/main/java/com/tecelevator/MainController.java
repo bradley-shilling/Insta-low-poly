@@ -42,26 +42,14 @@ public class MainController {
 	}
 	
 	// not needed
-	@RequestMapping(path="/i", method=RequestMethod.GET)
-	public String displayIndex() throws IOException {
-	return "index";
-	}
 	@RequestMapping(path="/profile", method=RequestMethod.GET)
 	public String displayProfile() throws IOException {
 	return "profile";
 	}
-	@RequestMapping(path="/gallery", method=RequestMethod.GET)
-	public String displayGallery() throws IOException {
-	return "gallery";
-	}
 	
 	
 	
-	@RequestMapping(path="/", method=RequestMethod.POST)
-	public String sendAccountToLowPoly(@RequestParam String instagramAccount, ModelMap modelHolder, HttpSession session) throws IOException {
-		String urlOut = "redirect:/" + instagramAccount ;
-	return urlOut;
-	}
+	
 	
 	/*
 	 * Display default page w/ first image
@@ -129,7 +117,9 @@ public class MainController {
 	    /*
 	     * set up menu
 	     */
-		//TODO finish integrating menu
+		//TODO finish integrating menu and allowing user to slelect next x number of items
+	    //TODO hook up search functionality
+	    //TODO hook up log out functionality
 		int menuSize = 8; // set number of items to show in menu
 		int menuIndex; //set starting point for menu
 		if(session.getAttribute("menuIndex") != null) { // check if menu index exists
@@ -229,6 +219,14 @@ public class MainController {
 		
 	return "showAll";
 	}
+	
+	@RequestMapping(path="/handleInstagramToken", method=RequestMethod.GET)
+	public String showInstagramToken( 
+			HttpSession session) throws IOException {
+	return "/";
+	}
+	
+	
 	
 	
 	
