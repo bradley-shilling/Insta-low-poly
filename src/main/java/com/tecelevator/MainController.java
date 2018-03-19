@@ -220,12 +220,12 @@ public class MainController {
 	return "showAll";
 	}
 	
-	@RequestMapping(path="/handleInstagramToken", method=RequestMethod.GET)
+	@RequestMapping(path="/handleInstagramToken/", method=RequestMethod.GET)
 	public String showInstagramToken( 
 			HttpSession session) throws IOException {
 	return "redirect:/";
 	}
-	@RequestMapping(path="/handleInstagramToken", method=RequestMethod.POST)
+	@RequestMapping(path="/handleInstagramToken/", method=RequestMethod.POST)
 	public String showInstagramTokenHeroku( 
 			HttpSession session) throws IOException {
 	return "redirect:/";
