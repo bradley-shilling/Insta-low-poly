@@ -20,7 +20,7 @@
 <!--  this is a maping for the instagram token -->
     <servlet-mapping>
         <servlet-name>InstagramTokenHandler</servlet-name>
-        <url-pattern>/handleInstagramToken/</url-pattern>
+        <url-pattern>/handleInstagramToken</url-pattern>
     </servlet-mapping>
     
   
