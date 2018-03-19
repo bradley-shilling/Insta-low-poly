@@ -7,6 +7,23 @@
 		 
   <display-name>Hello Spring MVC Application</display-name>
   
+  
+  <!--  this is a listener for the instagram contex -->
+  	<listener>
+        <listener-class>com.tecelevator.listener.ContextListener</listener-class>
+    </listener>
+<!--  this is a servlet for the instagram token -->
+    <servlet>
+        <servlet-name>InstagramTokenHandler</servlet-name>
+        <servlet-class>com.tecelevator.instagram.InstagramTokenHandler</servlet-class>
+    </servlet>
+<!--  this is a maping for the instagram token -->
+    <servlet-mapping>
+        <servlet-name>InstagramTokenHandler</servlet-name>
+        <url-pattern>/handleInstagramToken</url-pattern>
+    </servlet-mapping>
+    
+  
   <!-- This is the Spring DispatcherServlet -->
   <servlet>
     <servlet-name>springmvc</servlet-name>
@@ -31,20 +48,6 @@
   	<url-pattern>*.gif</url-pattern>
   </servlet-mapping>
   
-<!--  this is a listener for the instagram contex -->
-  	<listener>
-        <listener-class>com.tecelevator.listener.ContextListener</listener-class>
-    </listener>
-<!--  this is a servlet for the instagram token -->
-    <servlet>
-        <servlet-name>InstagramTokenHandler</servlet-name>
-        <servlet-class>com.tecelevator.instagram.InstagramTokenHandler</servlet-class>
-    </servlet>
-<!--  this is a maping for the instagram token -->
-    <servlet-mapping>
-        <servlet-name>InstagramTokenHandler</servlet-name>
-        <url-pattern>/handleInstagramToken/</url-pattern>
-    </servlet-mapping>
-    
+
     
 </web-app>
