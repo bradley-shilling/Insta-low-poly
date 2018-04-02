@@ -41,8 +41,11 @@ public class MyImageList implements MyImageDAO {
 	private MyImage mapInstagramApiResultsToMyImage(MediaFeedData media, int count) {
 		MyImage currentImage = new MyImage();
 		currentImage.setThumbnailURL(media.getImages().getThumbnail().getImageUrl());
-		//magic happens here - hack to get higher resolution images not accessible in Instagram API
-		currentImage.setLargeImgURL(media.getImages().getStandardResolution().getImageUrl().replaceAll("s640x640/", "s1080x1080/").replaceAll("/vp\\/[^\\/]*/", "/hphotos-xfp1/"));
+		//magic happens here - hack to get higher resolution images not accessible in Instagram API 
+		//INSTAGRAM CDN CHANGED THIS NO LONGER WORKS
+		//currentImage.setLargeImgURL(media.getImages().getStandardResolution().getImageUrl().replaceAll("s640x640/", "s1080x1080/").replaceAll("/vp\\/[^\\/]*/", "/hphotos-xfp1/"));
+		currentImage.setLargeImgURL(media.getImages().getStandardResolution().getImageUrl());
+
 		Date javaTime = new Date(Long.parseLong(media.getCreatedTime())*1000); // this gives a date java can understand from the unix timestamp returned by the instagram api
 	    LocalDateTime ldt = LocalDateTime.ofInstant(javaTime.toInstant(), ZoneId.systemDefault()); // convert to local date
 	    DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("MM/dd/yyyy"); // format date
